@@ -5,14 +5,15 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        if (number < 2 || number > 9){
-            System.out.println("2이상, 9이하의 값만 입력할 수 있습니다.");
-        }else {
-            for (int i = 1; i < 10; i++) {
-                System.out.printf("%d * %d = %d\n", number, i, number * i);
+        int[] numberGugudan = new int[9];
+        for (int number = 2; number < 10; number++){
+            for (int i = 1; i < numberGugudan.length; i++){
+                numberGugudan[i] = number * i;
+            }
+            System.out.println();
+            System.out.printf("%d단:",number);
+            for (int i = 1; i < numberGugudan.length; i++){
+                System.out.printf("%d ", numberGugudan[i]);
             }
         }
     }

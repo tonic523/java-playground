@@ -1,15 +1,15 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class GugudanMain {
 
     public static void main(String[] args) {
-        int[] numberGugudan = new int[9];
-        for (int number = 2; number < 10; number++){
-            numberGugudan = Gugudan.get_gugudan(number);
-            System.out.println();
-            System.out.printf("%d단:",number);
-            Gugudan.print_gugudan(numberGugudan);
-        }
+        Scanner scanner = new Scanner(System.in);
+        String inputValue = scanner.nextLine();
+        String[] splitedValue = inputValue.split(" ");
+        int first = Integer.parseInt(splitedValue[0]);
+        int second = Integer.parseInt(splitedValue[1]);
+        Gugudan.print(first,second);
     }
-
 }

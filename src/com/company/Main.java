@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
-
+import java.lang.Object;
 public class Main {
     public static int[] get_gugudan(int number) {
         int[] result = new int[9];

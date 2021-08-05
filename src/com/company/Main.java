@@ -2,17 +2,18 @@ package com.company;
 
 import java.util.Scanner;
 
-import calendar.Sum;
+import calendar.Calendar;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("두 수를 입력하세요.");
+        System.out.println("달을 입력하세요.");
         String inValue = scanner.nextLine();
-        String[] arrValue = inValue.split(" ");
-        Sum sum = new Sum(arrValue);
-        sum.print();
+        Calendar calendar = new Calendar();
+        int month = Integer.parseInt(inValue);
+        int days = calendar.getDays(month);
+        System.out.printf("%d월은 %d까지 있습니다.",month,days);
         scanner.close();
     }
 }

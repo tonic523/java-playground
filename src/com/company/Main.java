@@ -1,17 +1,18 @@
 package com.company;
 
-import gugudan.Gugudan;
-
 import java.util.Scanner;
+
+import calendar.Sum;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String inputValue = scanner.nextLine();
-        String[] splitedValue = inputValue.split(" ");
-        int first = Integer.parseInt(splitedValue[0]);
-        int second = Integer.parseInt(splitedValue[1]);
-        Gugudan.print(first, second);
+        System.out.println("두 수를 입력하세요.");
+        String inValue = scanner.nextLine();
+        String[] arrValue = inValue.split(" ");
+        Sum sum = new Sum(arrValue);
+        sum.print();
+        scanner.close();
     }
 }

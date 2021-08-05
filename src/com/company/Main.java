@@ -1,8 +1,10 @@
 package com.company;
 
+import gugudan.Gugudan;
+
 import java.util.Scanner;
 
-public class GugudanMain {
+public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

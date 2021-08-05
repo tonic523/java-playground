@@ -1,4 +1,4 @@
-package com.company;
+package gugudan;
 
 public class Gugudan {
 

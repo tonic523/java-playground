@@ -8,17 +8,20 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("달을 입력하세요.");
-        int inValue = scanner.nextInt();
         Calendar calendar = new Calendar();
-        int month = inValue;
-        int days = calendar.getDays(month);
-        if (days == 0){
-            System.out.println("잘못된 입력입니다.");
-        }else {
-            System.out.printf("%d월은 %d까지 있습니다.\n",month,days);
+
+        System.out.println("반복 횟수를 입력하세요.");
+        int time = scanner.nextInt();
+        System.out.println("월을 입력하세요.");
+        int[] months = new int[time];
+
+        for (int i = 0; i < time; i++){
+            int month = scanner.nextInt();
+            months[i] = month;
         }
-        calendar.print();
+        for (int month : months){
+            System.out.printf("%d월은 %d일까지 있습니다.\n",month,calendar.getDays(month));
+        }
         scanner.close();
     }
 }

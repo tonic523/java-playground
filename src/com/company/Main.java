@@ -9,11 +9,16 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("달을 입력하세요.");
-        String inValue = scanner.nextLine();
+        int inValue = scanner.nextInt();
         Calendar calendar = new Calendar();
-        int month = Integer.parseInt(inValue);
+        int month = inValue;
         int days = calendar.getDays(month);
-        System.out.printf("%d월은 %d까지 있습니다.",month,days);
+        if (days == 0){
+            System.out.println("잘못된 입력입니다.");
+        }else {
+            System.out.printf("%d월은 %d까지 있습니다.\n",month,days);
+        }
+        calendar.print();
         scanner.close();
     }
 }

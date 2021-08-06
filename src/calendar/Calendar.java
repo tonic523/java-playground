@@ -1,14 +1,30 @@
 package calendar;
 
 public class Calendar {
-    int[] DAYSBYMONTH = {31,29,31,30,31,30,31,31,30,31,30,31};
     public Calendar(){}
 
-    public int getDays(int month){
-        if (month < 1 | month > 12){
-            return 0;
+    public int isLeapYear(int year){
+        if (year % 4 == 0){
+            if (year % 100 != 0){
+                return 29;
+            }
+            if (year % 400 == 0){
+                return 29;
+            }
         }
-        return DAYSBYMONTH[month-1];
+        return 28;
+    }
+
+    public int getDays(int year, int month){
+        if (month % 2 == 1 | month == 8){
+            return 31;
+        }else {
+            if (month != 2){
+                return 30;
+            }else {
+                return isLeapYear(year);
+            }
+        }
     }
 
     public void print(int days){

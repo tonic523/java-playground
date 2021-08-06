@@ -9,16 +9,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calendar calendar = new Calendar();
-        int month;
         while(true){
-            System.out.println("월을 입력하세요.");
-            month = scanner.nextInt();
-            scanner.nextLine();
-            if (month == -1) {
+            System.out.println("연도와 월을 입력하세요.");
+            String input = scanner.nextLine();
+            if (input == "-1"){
                 System.out.println("Have a nice day!");
                 break;
             }
-            calendar.print(calendar.getDays(month));
+            String[] year_month = input.split(" ");
+            int year = Integer.parseInt(year_month[0]);
+            int month = Integer.parseInt(year_month[1]);
+            calendar.print(calendar.getDays(year, month));
         }
         scanner.close();
     }

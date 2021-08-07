@@ -39,7 +39,7 @@ public class Calendar {
         int totalDays = 0;
         int weekdays;
         for (int i = sYear; i < year; i++){
-            totalDays += isLeapYear(i) ? 366 : 355;
+            totalDays += isLeapYear(i) ? 366 : 365;
         }
         for (int m = 1; m < month; m++){
             totalDays += getDays(year,m);
@@ -52,6 +52,7 @@ public class Calendar {
     public void print(int year, int month){
         int weekday = getWeekday(year,month,1);
         int days = getDays(year,month);
+        System.out.printf("    <%4d년 %2d월>    \n", year, month);
         System.out.printf("%2s %2s %2s %2s %2s %2s %2s\n","일","월","화","수","목","금","토");
         System.out.println("--------------------");
         for (int j = 1; j <= weekday; j++){

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Calendar {
 
-    String[] WEEKDAYS = {"SU", "MO", "TU", "WE", "TH", "FR", "SA"};
+    public String[] WEEKDAYS = {"SU", "MO", "TU", "WE", "TH", "FR", "SA"};
     public Calendar(){}
 
     public boolean isLeapYear(int year){

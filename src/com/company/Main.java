@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import calendar.Calendar;
+import calendar.Schedule;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calendar calendar = new Calendar();
+        Schedule schedule = new Schedule();
         boolean isRun = true;
         String command;
         String date;
-        String schedule;
+        String inSchedule;
         ArrayList<String> schedules = new ArrayList<String>();
         String buffer;
         calendar.help();
@@ -29,22 +31,22 @@ public class Main {
                     buffer = scanner.nextLine();
 
                     System.out.println("일정을 입력하세요.");
-                    schedule = scanner.next();
+                    inSchedule = scanner.next();
                     buffer = scanner.nextLine();
-                    calendar.setSchedule(date, schedule);
+                    schedule.setSchedule(date, inSchedule);
                     break;
                 case "2":
                     System.out.println("일정 조회");
                     System.out.println("[일정 조회] 날짜를 입력하세요.");
                     date = scanner.next();
                     buffer = scanner.nextLine();
-                    schedules = (ArrayList<String>) calendar.getSchedule(date);
+                    schedules = (ArrayList<String>) schedule.getSchedule(date);
                     for (int i = 1; i <= schedules.size(); i++){
                         System.out.printf("%d. %s\n", i, schedules.get(i-1));
                     }
                     break;
                 case "3":
-                    calendar.getCalendar();
+                    calendar.getCalendar(schedule);
                     break;
                 case "h":
                     calendar.help();

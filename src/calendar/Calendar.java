@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Calendar {
     Integer[] month_days_31 = {1,3,5,7,8,10,12};
     Integer[] month_days_30 = {4,6,9,11};
-    HashMap<String, ArrayList<String>> schedules = new HashMap<String,ArrayList<String>>();
 
     public Calendar(){}
 
@@ -21,7 +20,7 @@ public class Calendar {
         System.out.println("+--------------+");
     }
 
-    public void getCalendar(){
+    public void getCalendar(Schedule schedule){
         Scanner scanner = new Scanner(System.in);
         System.out.println("연도를 입력하세요.");
         System.out.print("YEAR> ");
@@ -38,7 +37,7 @@ public class Calendar {
             return;
         }
         String buffer = scanner.nextLine();
-        print(year, month);
+        print(schedule, year, month);
     }
 
     public boolean isLeapYear(int year){
@@ -82,7 +81,7 @@ public class Calendar {
         return weekdays;
     }
 
-    public void print(int year, int month){
+    public void print(Schedule schedule, int year, int month){
         int weekday = getWeekday(year,month,1);
         int days = getDays(year,month);
         String date;
@@ -95,7 +94,7 @@ public class Calendar {
         for (int day = 1; day <= days; day++){
             date = String.format("%d-%d-%d",year,month,day);
             System.out.printf("%2d",day);
-            if (schedules.containsKey((date))){
+            if (schedule.schedules.containsKey((date))){
                 System.out.print(".");
             }else{
                 System.out.print(" ");
@@ -105,25 +104,5 @@ public class Calendar {
             }
         }
         System.out.println();
-    }
-
-    public void setSchedule(String date, String schedule){
-        ArrayList<String> tempList = new ArrayList<>();
-        if (schedules.containsKey(date)){
-            tempList = schedules.get(date);
-        }
-        tempList.add(schedule);
-        schedules.put(date, tempList);
-    }
-
-    public Object getSchedule(String date){
-        ArrayList<String> tempList = new ArrayList<>();
-        if (schedules.containsKey(date)){
-            tempList = schedules.get(date);
-            System.out.printf("%d개의 일정이 있습니다.\n", tempList.size());
-        }else {
-            System.out.println("일정이 없습니다.");
-        }
-        return tempList;
     }
 }

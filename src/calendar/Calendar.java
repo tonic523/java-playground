@@ -85,15 +85,22 @@ public class Calendar {
     public void print(int year, int month){
         int weekday = getWeekday(year,month,1);
         int days = getDays(year,month);
+        String date;
         System.out.printf("    <%4d년 %2d월>    \n", year, month);
         System.out.printf("%2s %2s %2s %2s %2s %2s %2s\n","일","월","화","수","목","금","토");
         System.out.println("--------------------");
         for (int j = 1; j <= weekday; j++){
             System.out.printf("%2s ", "");
         }
-        for (int i = 1; i <= days; i++){
-            System.out.printf("%2d ",i);
-            if ((i+weekday) % 7 == 0){
+        for (int day = 1; day <= days; day++){
+            date = String.format("%d-%d-%d",year,month,day);
+            System.out.printf("%2d",day);
+            if (schedules.containsKey((date))){
+                System.out.print(".");
+            }else{
+                System.out.print(" ");
+            }
+            if ((day+weekday) % 7 == 0){
                 System.out.println();
             }
         }

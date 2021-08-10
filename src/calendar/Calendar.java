@@ -1,12 +1,37 @@
 package calendar;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Calendar {
     Integer[] month_days_31 = {1,3,5,7,8,10,12};
     Integer[] month_days_30 = {4,6,9,11};
 
     public Calendar(){}
+
+    public boolean promptPrint(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("연도를 입력하세요.(-1 입력시 종료)");
+        System.out.print("YEAR> ");
+        int year = Integer.parseInt(scanner.next());
+        if (year == -1){
+            System.out.println("Have a nice day!");
+            return false;
+        }else if (year < 1970){
+            System.out.println("연도를 잘못 입력하셨습니다.");
+            return true;
+        }
+        System.out.println("월을 입력하세요.");
+        System.out.print("MONTH> ");
+        int month = Integer.parseInt(scanner.next());
+        if (month < 1 | month > 12){
+            System.out.println("월을 잘못 입력하셨습니다.");
+            return true;
+        }
+        String buffer = scanner.nextLine();
+        print(year, month);
+        return true;
+    }
 
     public boolean isLeapYear(int year){
         if (year % 4 == 0){

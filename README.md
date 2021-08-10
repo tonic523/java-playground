@@ -15,7 +15,7 @@ h. 도움말
 
 q. 종료
 
-## ⛰⛰ 패키지 별 구현한 기능
+## ⛰⛰ 클래스 별 구현한 기능
 
 ### ⛰ 구구단(gugudan.Gugudan)
 > 자료형과 연산자, 출력을 통해 구현하기
@@ -41,6 +41,7 @@ q. 종료
 
 > 입력을 받고 달력 출력 메소드 호출(getCalendar)
 
+### ⛰ 일정(calendar.Schedule)
 > 일정 추가(setSchedule)
 
 > 일정 조회(getSchedule)

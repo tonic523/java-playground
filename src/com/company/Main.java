@@ -33,7 +33,7 @@ public class Main {
                     System.out.println("일정을 입력하세요.");
                     inSchedule = scanner.next();
                     buffer = scanner.nextLine();
-                    schedule.setSchedule(date, inSchedule);
+                    schedule.add(date, inSchedule);
                     break;
                 case "2":
                     System.out.println("일정 조회");

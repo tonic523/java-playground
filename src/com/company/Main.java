@@ -49,10 +49,6 @@ public class Main {
                         break;
                     }
                     schedule.read(date);
-//                    schedules = (ArrayList<String>) schedule.getSchedule(date);
-//                    for (int i = 1; i <= schedules.size(); i++){
-//                        System.out.printf("%d. %s\n", i, schedules.get(i-1));
-//                    }
                     break;
                 case "3":
                     calendar.getCalendar(schedule);

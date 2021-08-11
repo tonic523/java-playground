@@ -10,4 +10,12 @@ public class Util {
         boolean regex = Pattern.matches(DATE, date);
         return regex;
     }
+
+    public String formatDate(String date){
+        String[] dateSplit = date.split("-");
+        String year = dateSplit[0];
+        String month = dateSplit[1];
+        String day = dateSplit[2];
+        return String.format("%s-%2s-%2s",year,month,day).replace(" ", "0");
+    }
 }

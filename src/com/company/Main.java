@@ -26,13 +26,12 @@ public class Main {
             switch (command){
                 case "1":
                     System.out.println("[일정 등록]");
-                    System.out.println("[일정 등록] 날짜를 입력하세요.");
+                    System.out.println("[일정 등록] 날짜를 입력하세요.(yyyy-mm-dd)");
                     date = scanner.next();
                     buffer = scanner.nextLine();
 
                     System.out.println("일정을 입력하세요.");
-                    inSchedule = scanner.next();
-                    buffer = scanner.nextLine();
+                    inSchedule = scanner.nextLine();
                     schedule.add(date, inSchedule);
                     break;
                 case "2":
@@ -40,10 +39,11 @@ public class Main {
                     System.out.println("[일정 조회] 날짜를 입력하세요.");
                     date = scanner.next();
                     buffer = scanner.nextLine();
-                    schedules = (ArrayList<String>) schedule.getSchedule(date);
-                    for (int i = 1; i <= schedules.size(); i++){
-                        System.out.printf("%d. %s\n", i, schedules.get(i-1));
-                    }
+                    schedule.read(date);
+//                    schedules = (ArrayList<String>) schedule.getSchedule(date);
+//                    for (int i = 1; i <= schedules.size(); i++){
+//                        System.out.printf("%d. %s\n", i, schedules.get(i-1));
+//                    }
                     break;
                 case "3":
                     calendar.getCalendar(schedule);

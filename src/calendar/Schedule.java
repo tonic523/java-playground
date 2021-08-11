@@ -1,11 +1,14 @@
 package calendar;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import java.io.BufferedWriter;
 import java.io.File;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Schedule {
@@ -28,10 +31,12 @@ public class Schedule {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter fileWriter = new FileWriter(file);
+            FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            writer.write(schedule);
+            writer.write(schedule+"\n");
+            System.out.println(schedule);
+            writer.flush();
             writer.close();
 
         } catch (IOException e){
@@ -39,10 +44,23 @@ public class Schedule {
         }
     }
 
-    public ArrayList<String> read(String date, String schedule){
-        ArrayList<String> schedules = new ArrayList<String>();
-
-        return schedules;
+    public void read(String date) {
+        String fDate = formatDate(date);
+        ArrayList<String> schedules = new ArrayList<>();
+        try {
+            FileReader file = new FileReader(
+                    String.format("/Users/wooseok/IdeaProjects/java-playground/schedules/%s.txt", fDate));
+            BufferedReader reader = new BufferedReader(file);
+            String line = null;
+            int number = 1;
+            while ((line = reader.readLine()) != null) {
+                System.out.printf("%d. %s\n",number, line);
+                number ++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("일정이 없습니다.");
+        }
     }
 
     public void delete(String date, String schedule){

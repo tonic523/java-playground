@@ -92,7 +92,7 @@ public class Calendar {
         for (int day = 1; day <= days; day++){
             date = String.format("%d-%d-%d",year,month,day);
             System.out.printf("%2d",day);
-            if (schedule.schedules.containsKey((date))){
+            if (schedule.exist(date)){
                 System.out.print(".");
             }else{
                 System.out.print(" ");

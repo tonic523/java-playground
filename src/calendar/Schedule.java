@@ -38,7 +38,7 @@ public class Schedule {
             System.out.println(schedule);
             writer.flush();
             writer.close();
-
+            fileWriter.close();
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -46,7 +46,6 @@ public class Schedule {
 
     public void read(String date) {
         String fDate = formatDate(date);
-        ArrayList<String> schedules = new ArrayList<>();
         try {
             FileReader file = new FileReader(
                     String.format("/Users/wooseok/IdeaProjects/java-playground/schedules/%s.txt", fDate));
@@ -58,35 +57,21 @@ public class Schedule {
                 number ++;
             }
             reader.close();
+            file.close();
         } catch (IOException e) {
             System.out.println("일정이 없습니다.");
         }
     }
 
-    public void delete(String date, String schedule){
-
-    }
-
-
-
-    public void setSchedule(String date, String schedule){
-        ArrayList<String> tempList = new ArrayList<>();
-        if (schedules.containsKey(date)){
-            tempList = schedules.get(date);
+    public boolean exist(String date) {
+        String fDate = formatDate(date);
+        try {
+            FileReader file = new FileReader(
+                    String.format("/Users/wooseok/IdeaProjects/java-playground/schedules/%s.txt", fDate));
+            file.close();
+            return true;
+        } catch (IOException e) {
+            return false;
         }
-        tempList.add(schedule);
-        schedules.put(date, tempList);
     }
-
-    public Object getSchedule(String date){
-        ArrayList<String> tempList = new ArrayList<>();
-        if (schedules.containsKey(date)){
-            tempList = schedules.get(date);
-            System.out.printf("%d개의 일정이 있습니다.\n", tempList.size());
-        }else {
-            System.out.println("일정이 없습니다.");
-        }
-        return tempList;
-    }
-
 }
